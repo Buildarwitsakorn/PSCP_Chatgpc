@@ -7,9 +7,9 @@ body {
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    row-gap: 20px; /* ปรับพื้นที่ระหว่างแถว */
-    padding: 20px;
+    gap: 20px;
+    row-gap: 50px; /* ปรับพื้นที่ระหว่างแถว */
+    padding: 50px;
 }
 
 .image-box {
@@ -22,7 +22,7 @@ body {
 
 .image-box img {
     width: 100%;
-    height: calc(100% - 60px); /* ปรับสูงของรูปภาพเพื่อลดพื้นที่ให้กับชื่อและลิงก์ */
+    height: calc(100% - 80px); /* ปรับสูงของรูปภาพเพื่อลดพื้นที่ให้กับชื่อและลิงก์ */
     object-fit: cover;
     margin-top: 10px; /* เพิ่มระยะห่างระหว่างชื่อและภาพ */
     z-index: 1; /* ปรับ z-index ของภาพให้อยู่ล่างสุด */
