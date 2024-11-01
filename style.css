@@ -21,7 +21,32 @@ nav {
     align-items: center;
     height: 70px;
 }
+.logo {
+    margin-right: 20px;
+}
 
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #01244b;
+}
+
+.menu {
+    flex-grow: 1; /* ให้ .menu ขยายเพื่อจัดให้อยู่ซ้ายสุด */
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
