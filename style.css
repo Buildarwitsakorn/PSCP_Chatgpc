@@ -3,7 +3,50 @@ body {
     margin: 0;
     padding: 0;
 }
+nav {
+    font-size: 30px;
+    color: #01244b;
+    background: linear-gradient(to bottom, #fbf3d4, #fbe48b);
+    border-bottom: 3px solid #01244b; 
+}
 
+.navv {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.navvv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+.logo {
+    margin-right: 20px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #01244b;
+}
+
+.menu {
+    flex-grow: 1; /* ให้ .menu ขยายเพื่อจัดให้อยู่ซ้ายสุด */
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -15,14 +58,19 @@ body {
 .image-box {
     position: relative;
     width: 200px;
-    height: 300px;
+    height: 450px;
     overflow: hidden;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-between;  /*ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
+    align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
 }
 
 .image-box img {
     width: 100%;
-    height: calc(100% - 80px); /* ปรับสูงของรูปภาพเพื่อลดพื้นที่ให้กับชื่อและลิงก์ */
+    height: calc(100% - 60px); /* ปรับสูงของรูปภาพเพื่อลดพื้นที่ให้กับชื่อและลิงก์ */
     object-fit: cover;
     margin-top: 10px; /* เพิ่มระยะห่างระหว่างชื่อและภาพ */
     z-index: 1; /* ปรับ z-index ของภาพให้อยู่ล่างสุด */
@@ -30,54 +78,128 @@ body {
 
 .image-box p {
     position: absolute;
-    top: 0px; /* ชื่อบอร์ดเกมอยู่ที่ด้านบน */
+    top: 325px; /* ข้อความอยู่ที่ด้านบน */
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    color: white;
-    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(61, 61, 61);
     padding: 5px 10px;
     z-index: 2; /* ให้ข้อความอยู่ด้านบน */
+    white-space: nowrap; /* ทำให้ข้อความอยู่ในบรรทัดเดียว */
 }
 
 .play-link {
-    display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline เพื่อให้พอดีกับข้อความ */
-    margin-top: 5px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
+    display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline */
+    margin-top: 10px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
     color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจน */
     text-decoration: none; /* ยกเลิกขีดเส้นใต้ */
     background-color: blue; /* เพิ่มพื้นหลัง */
     padding: 10px 15px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ลิงก์ดูเหมือนปุ่ม */
     border-radius: 5px; /* ทำมุมมน */
     text-align: center; /* จัดให้ข้อความอยู่กลาง */
-    z-index: 3; /* ให้ลิงก์อยู่ด้านบน */
+    z-index: 4; /* ให้ลิงก์อยู่ด้านบน */
+    margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
 }
 
 .play-button {
-    margin-top: 10px; /* เพิ่มพื้นที่ระหว่างลิงก์และปุ่ม */
-    padding: 0;
-    background-color: #28a745;
-    color: transparent;
+    margin-top: 10; /* ปรับให้ไม่ต้องมีพื้นที่ด้านบน */
+    padding: 10px 15px;
+    background-color: #3bd65f;
+    text-align: center;
+    color: white;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    z-index: 4; /* ปรับให้ปุ่มอยู่ด้านบนสุด */
+    width: 150px;
+    height: 40px;
+    z-index: 3; /* ปรับให้ปุ่มอยู่ด้านบนสุด */
 }
 
 .play-button.active:after {
-    content: "✓";
+    content: "X";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: white;
+    font-size: 60px;
+    color: black;
 }
 
 .play-button.active {
-    background-color: #0056b3;
+    background-color: rgb(253, 55, 55);
+}
+/* footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.footer .social-links {
+    margin-top: 10px;
+}
+
+.footer .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.footer .social-links a:hover {
+    color: #ddd;
+}
+.back-to-top {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #ff6600;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #e65c00;
+}
+/* botton*/
+.play-link {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color:#65abf7;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+.play-link:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.1);
+}
+button{
+    font-size: 30px;
+    color: #01244b;
+
+    border: none;
+    border-bottom: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.1);
 }
