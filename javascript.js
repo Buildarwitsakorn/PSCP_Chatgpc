@@ -3,4 +3,4 @@ function scrollToTop() {
         top: 0,
         behavior: 'smooth'
     });
-}
+
