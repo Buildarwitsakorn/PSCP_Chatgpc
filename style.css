@@ -2,12 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #ffcdae49;
 }
 nav {
     font-size: 30px;
-    color: #01244b;
-    background: linear-gradient(to bottom, #fbf3d4, #fbe48b);
-    border-bottom: 3px solid #01244b; 
+    color: #fff7f0;
+    background-color: rgb(25, 129, 241) ;
+    border-bottom: 13px solid #80b3ff; 
 }
 
 .navv {
@@ -22,6 +23,7 @@ nav {
     height: 70px;
 }
 .logo {
+    display: flex;
     margin-right: 20px;
 }
 
@@ -35,7 +37,11 @@ nav {
 
 .menu li a {
     text-decoration: none;
-    color: #01244b;
+    color:#ffffff;
+}
+
+.menu li a :hover{
+    color:#656565;
 }
 
 .menu {
@@ -43,10 +49,37 @@ nav {
 }
 
 form {
+    color: #09478e;
     display: flex;
     align-items: center;
-    gap: 5px;
 }
+
+form input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 4px 0 0 4px; /* ทำมุมมนซ้าย */
+}
+
+form button {
+    padding: 0.5rem;
+    font-size: 15px;
+    background-color: #ff6600;
+    ;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0; /* ทำมุมมนทางขวา */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form button:hover {
+    background-color: #ff8d41;
+    ;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -87,17 +120,17 @@ form {
     font-size: 16px;
     font-weight: bold;
     background-color: rgb(61, 61, 61);
-    padding: 5px 10px;
+    padding: 5px 100px;
     z-index: 2; /* ให้ข้อความอยู่ด้านบน */
     white-space: nowrap; /* ทำให้ข้อความอยู่ในบรรทัดเดียว */
 }
 
 .play-link {
     display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline */
-    margin-top: 10px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
+    margin-top: 40px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
     color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจน */
     text-decoration: none; /* ยกเลิกขีดเส้นใต้ */
-    background-color: blue; /* เพิ่มพื้นหลัง */
+    background-color:rgb(0, 0, 255); /* เพิ่มพื้นหลัง */
     padding: 10px 15px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ลิงก์ดูเหมือนปุ่ม */
     border-radius: 5px; /* ทำมุมมน */
     text-align: center; /* จัดให้ข้อความอยู่กลาง */
@@ -108,7 +141,7 @@ form {
 .play-button {
     margin-top: 10; /* ปรับให้ไม่ต้องมีพื้นที่ด้านบน */
     padding: 10px 15px;
-    background-color: #3bd65f;
+    background-color: #29e154;
     text-align: center;
     color: white;
     font-size: 18px;
@@ -135,7 +168,7 @@ form {
 }
 /* footer */
 .footer {
-    background-color: #333;
+    background-color: rgb(29, 133, 245) ;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -163,7 +196,7 @@ form {
     bottom: 20px;
     right: 20px;
     padding: 10px 15px;
-    background-color: #ff6600;
+    background-color: #ff6e0e;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -173,17 +206,17 @@ form {
 }
 
 .back-to-top:hover {
-    background-color: #e65c00;
+    background-color: #ff7920;
 }
 /* botton*/
 .play-link {
     display: inline-block;
     padding: 5px 10px;
     font-size: 20px;
-    background-color:#65abf7;
+    background-color:#439dfd;
     text-decoration: none;
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 0px solid black;
     transition: all 0.3s ease;
 }
 
