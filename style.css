@@ -100,7 +100,9 @@ form button:hover {
     justify-content: space-between;  /*ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
     align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
 }
-
+.image-box:hover {
+    transform: scale(1.1)
+}
 .image-box img {
     width: 100%;
     height: auto;
