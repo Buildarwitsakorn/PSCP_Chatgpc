@@ -99,6 +99,7 @@ form button:hover {
     justify-content: flex-start;
     justify-content: space-between;  /*ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
     align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
+    margin-left: 70px;
 }
 
 .image-box img {
