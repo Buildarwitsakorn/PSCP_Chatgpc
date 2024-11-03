@@ -101,7 +101,9 @@ form button:hover {
     align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
     margin-left: 70px;
 }
-
+.image-box:hover {
+    transform: scale(1.1)
+}
 .image-box img {
     width: 100%;
     height: auto;
