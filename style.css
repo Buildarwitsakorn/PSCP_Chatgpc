@@ -2,14 +2,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #ffcdae49;
 }
 nav {
     font-size: 30px;
-    color: #01244b;
-    background-color: rgb(251, 239, 112);
+    color: #ffdbc1;
+    background-color: rgb(25, 129, 241) ;
+    border-bottom: 13px solid #80b3ff; 
 }
 
 .navv {
+    font-family: "Acme";
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -20,21 +23,37 @@ nav {
     align-items: center;
     height: 70px;
 }
+
 .logo {
-    margin-right: 20px;
+    background-color: #170089;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 16px;
+    font-size: 38px;
+    font-weight: 600;
+    display: flex;
+    margin-right: 30px;
 }
 
 .menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin: 0;
     padding: 0;
 }
 
 .menu li a {
+    background-color: #0045d8cb;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 16px;
     text-decoration: none;
-    color: #01244b;
+    color:#ffeedf;
+}
+
+.menu li a :hover{
+    color:#656565;
 }
 
 .menu {
@@ -42,10 +61,36 @@ nav {
 }
 
 form {
+    color: #09478e;
     display: flex;
     align-items: center;
-    gap: 5px;
 }
+
+form input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 4px 0 0 4px; /* ทำมุมมนซ้าย */
+}
+
+form button {
+    padding: 0.5rem;
+    font-size: 15px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0; /* ทำมุมมนทางขวา */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form button:hover {
+    background-color: #ff8d41;
+    ;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -63,10 +108,13 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    justify-content: space-between; /* ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
+    justify-content: space-between;  /*ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
     align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
+    margin-left: 70px;
 }
-
+.image-box:hover {
+    transform: scale(1.1)
+}
 .image-box img {
     width: 100%;
     height: auto;
@@ -78,24 +126,25 @@ form {
 
 .image-box p {
     position: absolute;
-    top: 0px; /* ชื่อบอร์ดเกมอยู่ที่ด้านบน */
+    top: 325px; /* ข้อความอยู่ที่ด้านบน */
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
+    background-color: rgb(61, 61, 61);
+    padding: 5px 100px;
     z-index: 2; /* ให้ข้อความอยู่ด้านบน */
+    white-space: nowrap; /* ทำให้ข้อความอยู่ในบรรทัดเดียว */
 }
 
 .play-link {
     display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline */
-    margin-top: 10px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
+    margin-top: 40px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
     color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจน */
     text-decoration: none; /* ยกเลิกขีดเส้นใต้ */
-    background-color: blue; /* เพิ่มพื้นหลัง */
+    background-color:rgb(0, 0, 255); /* เพิ่มพื้นหลัง */
     padding: 10px 15px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ลิงก์ดูเหมือนปุ่ม */
     border-radius: 5px; /* ทำมุมมน */
     text-align: center; /* จัดให้ข้อความอยู่กลาง */
@@ -106,7 +155,7 @@ form {
 .play-button {
     margin-top: 10; /* ปรับให้ไม่ต้องมีพื้นที่ด้านบน */
     padding: 10px 15px;
-    background-color: #28a745;
+    background-color: #29e154;
     text-align: center;
     color: white;
     font-size: 18px;
@@ -129,11 +178,11 @@ form {
 }
 
 .play-button.active {
-    background-color: #0056b3;
+    background-color: rgb(253, 55, 55);
 }
 /* footer */
 .footer {
-    background-color: #333;
+    background-color: rgb(29, 133, 245) ;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -161,7 +210,7 @@ form {
     bottom: 20px;
     right: 20px;
     padding: 10px 15px;
-    background-color: #ff6600;
+    background-color: #ff6e0e;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -171,5 +220,34 @@ form {
 }
 
 .back-to-top:hover {
-    background-color: #e65c00;
+    background-color: #ff7920;
+}
+/* botton*/
+.play-link {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color:#439dfd;
+    text-decoration: none;
+    border: none;
+    border-bottom: 0px solid black;
+    transition: all 0.3s ease;
+}
+
+.play-link:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.1);
+}
+button{
+    font-size: 30px;
+    color: #01244b;
+
+    border: none;
+    border-bottom: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.1);
 }

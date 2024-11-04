@@ -4,35 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Grid with Board Game Titles</title>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Image Grid with Board Game Titles</title>
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
         <div class="navv">
             <div class="navvv">
-                <div class="logo"><strong>A Board (Chatgpc)</strong></div>
-            
+                <div class="logo">A Board (Chatgpc)</div>
+                <ul class="menu">
+                    <li><a href="Tes111t">About</a></li>
+                    <li><a href="Tes111t">Contact</a></li>
+                </ul>
+
                 <form action="#">
                     <input type="text" placeholder="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <ul class="menu">
-                <li><a href="Tes111t">About</a></li>
-                <li><a href="Tes111t">Contact</a></li>
-            </ul>
         </div>
     </nav>
     <div class="container">
         <div class="image-box" data-game-id="1">
             <img src="https://inwfile.com/s-dt/zarcd7.jpg" alt="Coup">
-            <p>7 ate 9</p>
+            <p>7 ATE 9</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=qnrFlxWSOSk" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button"  onclick="startTask(1)">ยืมบอร์ดเกม</button> <!-- 7 ate 9 -->
             <input class="test" type="number" id="timeInput-1" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
@@ -49,186 +46,217 @@
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/LPa6rsGcv8S0-OeNjCOAEQ__itemrep/img/KtGX_JFWNUXci7H5zs7GjS0QrQk=/fit-in/246x300/filters:strip_icc()/pic1398895.jpg" alt="AVALON">
             <p>AVALON</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=UxF3y8vEbPU" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- AVALON -->
         </div>
         <div class="image-box">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS1daNqnswij6WKUBSoBy9Zo8qgIJb-WZpAg&s" alt="Azul">
-            <p>Azul</p>
-            <a class="play-link" href="https://www.youtube.com/watch?v=YoMd5YnRJkw" target="_blank">วิธีการเล่น</a>
+            <img src="https://cf.geekdo-images.com/opengraph/img/5UBOdYQkBGcTlZFSWH3cQ2G3fvw=/fit-in/1200x630/pic3718275.jpg" alt="Azul">
+            <p>AZUL</p>
+            <div class="checkmark" style="display: none;"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=Lqz9iYiW8G0" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- Azul -->
         </div>
         <div class="image-box">
-            <img src="https://inwfile.com/s-dt/9m8ixt.jpg" alt="BANG">
+            <img src="https://i.ebayimg.com/images/g/PjQAAOSwWxNkmVwL/s-l1600.webp" alt="BANG">
             <p>BANG</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=ZboHetONmxw" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- BANG -->
         </div>
         <div class="image-box">
             <img src="https://inwfile.com/s-dt/s61yx4.jpg" alt="BANG GOLD RUSH">
             <p>BANG GOLD RUSH</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=ZboHetONmxw" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- BANG GOLD RUSH -->
         </div>
         <div class="image-box">
             <img src="https://down-th.img.susercontent.com/file/6011915004dd94a9a40a4478d28d0506" alt="CAPTAIN SONAR">
             <p>CAPTAIN SONAR</p>
-            <a class="play-link" href="https://www.youtube.com/watch?v=IeGWNUrYh2g" target="_blank">วิธีการเล่น</a>
+            <div class="checkmark" style="display: none;"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=U2Diix5qYJo" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- CAPTAIN SONAR -->
         </div>
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/0_KEDk4lCvryf1Ju3YQJxA__itemrep/img/PIGqkIIFQ2YAAe7XzKWArEPVjoc=/fit-in/246x300/filters:strip_icc()/pic3339551.jpg" alt="CENTURY spice road">
-            <p>CENTURY spice road</p>
+            <p>CENTURY SPICE ROAD</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=4_Bli_4cE5I" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- CENTURY spice road -->
         </div>
         <div class="image-box">
             <img src="https://inwfile.com/s-dt/w003n6.jpg" alt="CITADELS">
             <p>CITADELS</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=UGvNbAHFIEY" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- CITADELS -->
         </div>
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/MWhSY_GOe2-bmlQ2rntSVg__itemrep/img/QRw3T5XGsrRs-QKCSpzwE7nFqOg=/fit-in/246x300/filters:strip_icc()/pic2016054.jpg" alt="COUP">
             <p>COUP</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=8RFolKqOagc" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- COUP -->
         </div>
         <div class="image-box">
             <img src="https://mercular.s3.ap-southeast-1.amazonaws.com/images/products/2022/03/review-cs-file-board-game-th-box-art.jpg" alt="CS FILES">
             <p>CS FILES</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=HFEASIID2oU" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- CS FILES -->
         </div>
         <div class="image-box">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsLN9cvLCe0bcmpbw87Lt-KY5B_UdPWt6GAw&s" alt="DEAD OF WINTER">
             <p>DEAD OF WINTER</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=v3YgX00xyv4" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- DEAD OF WINTER -->
         </div>
         <div class="image-box">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKTYGCru-y0opAZGCuQ_df33ho9OXXkR20gw&s" alt="DOMINING">
-            <p>DOMINING</p>
+            <p>DOMINION</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=z7BxZRAta4s" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- DOMINING -->
         </div>
         <div class="image-box">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_guQse4z5WB6RxkErCINaYdnQ69hsXr1PQ&s" alt="DRAGON CASTLE">
             <p>DRAGON CASTLE</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=Og3nr8CUluc" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- DRAGON CASTLE -->
         </div>
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/N8bL53-pRU7zaXDTrEaYrw__opengraph/img/2GQDDt2HfOV58ip2jT-eJLQ6o-k=/0x0:680x357/fit-in/1200x630/filters:strip_icc()/pic2691976.png" alt="EXPLODING KITTENS">
             <p>EXPLODING KITTENS</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=0h1D1nq4eR0" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- EXPLODING KITTENS -->
         </div>
         <div class="image-box">
             <img src="https://inwfile.com/s-dt/ai4vs8.png" alt="GIZMOS">
             <p>GIZMOS</p>
-            <a class="play-link" href="https://www.youtube.com/watch?v=MVdFSd90aik" target="_blank">วิธีการเล่น</a>
+            <div class="checkmark" style="display: none;"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=DbKEDYM1y80" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- GIZMOS -->
         </div>
         <div class="image-box">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpB2D076W8nEi1860v0F7R5EaVdP-y3OTGnQ&s" alt="KAKER LAKEN POKER">
             <p>KAKER LAKEN POKER</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=-NDbjtgnrwQ" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- KAKER LAKEN POKER -->
         </div>
         <div class="image-box">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBiCq7BVwrNMpp7IVpys9-_4Gq1aATIfq1A&s" alt="ONE NIGHT">
             <p>ONE NIGHT</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=pPwpCVqiSkk" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- ONE NIGHT -->
         </div>
         <div class="image-box">
-            <img src="https://m.media-amazon.com/images/I/811YPz8YufL._AC_UF894,1000_QL80_.jpg" alt="PANDMEIC">
-            <p>PANDMEIC</p>
+            <img src="https://i.ebayimg.com/images/g/b14AAOSwiKVkLsOZ/s-l960.webp" alt="PANDMEIC">
+            <p>PANDEMIC</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://youtube.com/watch?v=fzAPXx7u_UM" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- PANDMEIC -->
         </div>
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/yd6LuatytHRhcFCxCf-EEg__itemrep/img/LsqKzcnoaVUlSUmLxFE8dwxFndk=/fit-in/246x300/filters:strip_icc()/pic4459753.jpg" alt="POWER GRID">
             <p>POWER GRID</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=PRCZpZUeOCU" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- POWER GRID -->
         </div>
         <div class="image-box">
-            <img src="https://www.online-station.net/wp-content/uploads/2023/08/SALEM-1692-Setup_Player-600x600.jpg" alt="SALEM">
+            <img src="https://cf.geekdo-images.com/xUurReSy2Amlx4hGj1fPvQ__opengraph/img/x_s0g6VVJxr8i1T_Dz7aIAUaou4=/fit-in/1200x630/filters:strip_icc()/pic4204062.jpg" alt="SALEM">
             <p>SALEM</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=Gj_-Z4QhzKE" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- SALEM -->
         </div>
         <div class="image-box">
-            <img src="https://mercular.s3.ap-southeast-1.amazonaws.com/images/products/2020/03/Terraforming-mars-3.jpg" alt="TERRAFORMING MARS">
+            <img src="https://cf.geekdo-images.com/oqoINI9VwBhEy-LD7YD31J37-OI=/fit-in/1200x630/pic3536616.jpg" alt="TERRAFORMING MARS">
             <p>TERRAFORMING MARS</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=eD3SkN8Kj8E" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- TERRAFORMING MARS -->
         </div>
         <div class="image-box">
             <img src="https://i.ytimg.com/vi/8Rsb3gPrPPk/maxresdefault.jpg" alt="THE KILLER">
-            <p>THE KILLER</p>
+            <p>SERIAL KILLER</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=8Rsb3gPrPPk" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- THE KILLER -->
         </div>
         <div class="image-box">
-            <img src="https://cf.geekdo-images.com/q_JGK291hrhnhiRB0667oA__itemrep/img/w6x_ahGLQVe2u6trDx0kO91OprM=/fit-in/246x300/filters:strip_icc()/pic3979766.png" alt="THE MIND">
+            <img src="https://cf.geekdo-images.com/opengraph/img/BCNDuq_C5yTBRWff_Cius38DCCI=/fit-in/1200x630/pic3979766.png" alt="THE MIND">
             <p>THE MIND</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=R6WA_0dbHR4" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- THE MIND -->
         </div>
         <div class="image-box">
             <img src="https://inwfile.com/s-dt/f61zcv.png" alt="TIME LINE">
             <p>TIME LINE</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=Up_2mZfkmS8" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- TIME LINE -->
         </div>
         <div class="image-box">
             <img src="https://inwfile.com/s-dt/9j9sca.png" alt="Political Mess">
             <p>Political Mess</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=lHExItLq7v4" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- Political Mess -->
         </div>
         <div class="image-box">
-            <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202209/560835/2000044570_front_XXL.jpg?imgname=UNO-BASIC-CARD-GAME-W2085-" alt="๊UNO">
+            <img src="https://th.bing.com/th/id/R.4e94edafe0ecb89a79f2abe13829bce1?rik=LLoJ5hYvLTy2Uw&pid=ImgRaw&r=0" alt="๊UNO">
             <p>UNO</p>
-            <a class="play-link" href="https://www.youtube.com/watch?v=4YmlRyFJfUI" target="_blank">วิธีการเล่น</a>
+            <div class="checkmark" style="display: none;"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hHEl0wnEV38" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- ๊UNO -->
         </div>
         <div class="image-box">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF6-SgQIKHCeZD5xa45lB931DHn7XRMmIoqw&s" alt="CATAN">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg" alt="CATAN">
             <p>CATAN</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=1NeByLaej7c" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- CATAN -->
         </div>
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/dncdxD1g4dxMh9e8oKlzbg__itemrep/img/UhfbyPGGX9z263n-vhzVMG-alHE=/fit-in/246x300/filters:strip_icc()/pic1878492.png" alt="Ultimate Werewolf Deluxe">
             <p>Ultimate Werewolf Deluxe</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=d0OoxTyyaDw" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- Ultimate Werewolf Deluxe -->
         </div>
         <div class="image-box">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwfsaXY2RlFMNytduyAIicv3_K1gaBDwoA-Q&s" alt="สนุก สลัด">
             <p>สนุก สลัด</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=IqfILxP5vH0" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- สนุก สลัด -->
         </div>
         <div class="image-box">
-            <img src="https://inwfile.com/s-da/xer64v.jpg" alt="หมากรุก">
+            <img src="https://th.bing.com/th/id/OIP.quz05laBbVI-FYxwILZAMAHaFG?rs=1&pid=ImgDetMain" alt="หมากรุก">
             <p>หมากรุก</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=TNlmse5OTeo" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- หมากรุก -->
         </div>
         <div class="image-box">
             <img src="https://down-th.img.susercontent.com/file/de614974781410f477787f365b2013eb" alt="หมากล้อม">
             <p>หมากล้อม</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=Xzblss_XBN0" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- หมากล้อม -->
         </div>
         <div class="image-box">
-            <img src="https://img.lazcdn.com/g/p/c9b62f5f9556bb58d789cc6bce966a13.jpg_720x720q80.jpg" alt="JUNGLE SPEED">
+            <img src="https://juegosdemesaparaimprimir.com/wp-content/uploads/2024/07/pic4659199.jpg" alt="JUNGLE SPEED">
             <p>JUNGLE SPEED</p>
+            <div class="checkmark" style="display: none;"></div>
             <a class="play-link" href="https://www.youtube.com/watch?v=YcpoJOsu70k" target="_blank">วิธีการเล่น</a>
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- JUNGLE SPEED -->
         </div>
