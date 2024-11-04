@@ -27,6 +27,11 @@ buttons.forEach(button => {
         }
     });
 });
+function startTask(gameId) {
+    console.log(`Starting task for gameId: ${gameId}`); // ตรวจสอบค่า gameId
+    // ... โค้ดที่เหลือ
+}
+
 
 let countdownIntervals = {}; // เก็บ reference ของ countdown
 
@@ -82,7 +87,7 @@ function resumeTask(gameId, remainingTime) {
 
 window.onload = function() {
     // ตรวจสอบเวลาที่เหลือสำหรับแต่ละเกมเมื่อโหลดหน้า
-    const numberOfGames = 2; // จำนวนบอร์ดเกม (ปรับตามที่ต้องการ)
+    const numberOfGames = 37; // จำนวนบอร์ดเกม (ปรับตามที่ต้องการ)
     for (let i = 1; i <= numberOfGames; i++) {
         const timeRemaining = localStorage.getItem(`timeRemaining-${i}`);
         if (timeRemaining) {

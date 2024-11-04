@@ -134,7 +134,7 @@ form button:hover {
     font-size: 16px;
     font-weight: bold;
     background-color: rgb(61, 61, 61);
-    padding: 5px 100px;
+    padding: 0px 100px;
     z-index: 2; /* ให้ข้อความอยู่ด้านบน */
     white-space: nowrap; /* ทำให้ข้อความอยู่ในบรรทัดเดียว */
 }
