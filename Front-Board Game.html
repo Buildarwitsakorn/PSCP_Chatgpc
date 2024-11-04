@@ -30,17 +30,21 @@
         </div>
     </nav>
     <div class="container">
-        <div class="image-box">
+        <div class="image-box" data-game-id="1">
             <img src="https://inwfile.com/s-dt/zarcd7.jpg" alt="Coup">
             <p>7 ate 9</p>
             <a class="play-link" href="https://www.youtube.com/watch?v=qnrFlxWSOSk" target="_blank">วิธีการเล่น</a>
-            <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- 7 ate 9 -->
+            <button class="play-button" id="toggle-button"  onclick="startTask(1)">ยืมบอร์ดเกม</button> <!-- 7 ate 9 -->
+            <input class="test" type="number" id="timeInput-1" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-1"></div>
         </div>
-        <div class="image-box">
+        <div class="image-box" data-game-id="2">
             <img src="https://m.media-amazon.com/images/I/71UpznWt6VL.jpg" alt="aquarius">
             <p>aquarius</p>
             <a class="play-link" href="https://www.youtube.com/watch?v=YksHKk1zWL4" target="_blank">วิธีการเล่น</a>
-            <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- quarius -->
+            <button class="play-button" id="toggle-button"  onclick="startTask(2)">ยืมบอร์ดเกม </button> <!-- quarius -->
+            <input class="test" type="number" id="timeInput-2" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-2"></div>
         </div>
         <div class="image-box">
             <img src="https://cf.geekdo-images.com/LPa6rsGcv8S0-OeNjCOAEQ__itemrep/img/KtGX_JFWNUXci7H5zs7GjS0QrQk=/fit-in/246x300/filters:strip_icc()/pic1398895.jpg" alt="AVALON">
@@ -230,30 +234,7 @@
         </div>
     </div>
 
-    <script>
-        const buttons = document.querySelectorAll('.play-button');
-
-        buttons.forEach(button => {
-            let isActive = false;
-
-            button.addEventListener('click', () => {
-                isActive = !isActive;
-                const imageBox = button.closest('.image-box');
-                const image = imageBox.querySelector('img');
-                const checkmark = imageBox.querySelector('.checkmark');
-
-                if (isActive) {
-                    button.classList.add('active');
-                    image.style.opacity = '0.25';  // จางรูปภาพ
-                    checkmark.style.display = 'block';  // แสดงรูปเครื่องหมายถูก
-                } else {
-                    button.classList.remove('active');
-                    image.style.opacity = '1';  // คืนความชัดของรูปภาพ
-                    checkmark.style.display = 'none';  // ซ่อนรูปเครื่องหมายถูก
-                }
-            });
-        });
-    </script>
+    <script src="่javascript.js"></script>
 </body>
 <footer class="footer">
     <p>&copy; 2024 MyWebsite. All rights reserved.</p>
