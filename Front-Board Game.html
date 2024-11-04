@@ -391,7 +391,34 @@
         </div>
     </div>
 
-    <script src="่javascript.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll('.play-button');
+
+        buttons.forEach(button => {
+            let isActive = false;
+
+            button.addEventListener('click', () => {
+                isActive = !isActive;
+                const imageBox = button.closest('.image-box');
+                const image = imageBox.querySelector('img');
+                const checkmark = imageBox.querySelector('.checkmark');
+
+                if (isActive) {
+                    button.classList.add('active');
+                    image.style.opacity = '0.25';  // จางรูปภาพ
+                    checkmark.style.display = 'block';  // แสดงรูปเครื่องหมายถูก
+                    button.innerHTML = 'มีคนใช้งาน';
+                } else {
+                    button.classList.remove('active');
+                    image.style.opacity = '1';  // คืนความชัดของรูปภาพ
+                    checkmark.style.display = 'none';  // ซ่อนรูปเครื่องหมายถูก
+                    button.innerHTML = 'ยืมบอร์ดเกม';
+                }
+            });
+        });
+    });
+    </script>
 </body>
 <footer class="footer">
     <p>&copy; 2024 MyWebsite. All rights reserved.</p>
