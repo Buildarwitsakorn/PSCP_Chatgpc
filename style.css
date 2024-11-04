@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Acme", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffcdae49;
@@ -12,7 +12,6 @@ nav {
 }
 
 .navv {
-    font-family: "Acme";
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -118,15 +117,15 @@ form button:hover {
 .image-box img {
     width: 100%;
     height: auto;
-    height: calc(100% - 80px); /* ปรับความสูงของภาพให้สอดคล้องกับขนาดใหม่ */
+    height: calc(100% - 148px); /* ปรับความสูงของภาพให้สอดคล้องกับขนาดใหม่ */
     object-fit: cover; /* คงสัดส่วนของภาพ */
-    margin-top: 10px; /* ระยะห่างระหว่างชื่อและภาพ */
+    margin-top: 0px; /* ระยะห่างระหว่างชื่อและภาพ */
     z-index: 1; /* ให้ภาพอยู่ด้านล่างสุด */
 }
 
 .image-box p {
     position: absolute;
-    top: 325px; /* ข้อความอยู่ที่ด้านบน */
+    top: calc(100% - 168px); /* ข้อความอยู่ที่ด้านบน */
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
@@ -180,9 +179,16 @@ form button:hover {
 .play-button.active {
     background-color: rgb(253, 55, 55);
 }
+
+.test {
+    padding: 0.3rem;
+    border: 10px #333;
+    border-radius: 4px; /* ทำมุมมนซ้าย */
+}
+
 /* footer */
 .footer {
-    background-color: rgb(29, 133, 245) ;
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px;
