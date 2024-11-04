@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Status Button with Countdown</title>
+    <style>
+        /* สีปุ่มเริ่มต้น */
+        #taskButton {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* สีแดงเมื่ออยู่ระหว่างทำงาน */
+        .working {
+            background-color: red;
+        }
+
+        /* ตัวนับเวลาถอยหลัง */
+        #countdownDisplay {
+            font-size: 18px;
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Task Status Button with Countdown</h2>
+    
+    <!-- ฟอร์มกรอกข้อมูลและเวลานับถอยหลัง -->
+    <input type="text" id="dataInput" placeholder="กรอกข้อมูล" required>
+    <input type="number" id="timeInput" placeholder="กรอกเวลานับถอยหลัง (วินาที)" required>
+    
+    <!-- ปุ่มสำหรับเริ่มการทำงาน -->
+    <button id="taskButton" onclick="startTask()">Start Task</button>
+    
+    <!-- แสดงเวลานับถอยหลัง -->
+    <div id="countdownDisplay"></div>
+    
+    <script>
+        let countdownInterval;
+
+        function startTask() {
+            const taskButton = document.getElementById('taskButton');
+            const timeInput = parseInt(document.getElementById('timeInput').value);  // ใช้ parseInt เพื่อให้ได้ค่าที่เป็นตัวเลขจำนวนเต็ม
+            const countdownDisplay = document.getElementById('countdownDisplay');
+            
+            // ตรวจสอบว่าผู้ใช้กรอกเวลาเป็นตัวเลขที่มากกว่า 0 หรือไม่
+            if (isNaN(timeInput) || timeInput <= 0) {
+                alert("กรุณากรอกเวลาที่เป็นตัวเลขและมากกว่า 0 วินาที");
+                return;
+            }
+
+            // เปลี่ยนสีปุ่มเป็นสีแดงและปิดการใช้งาน
+            taskButton.classList.add('working');
+            taskButton.disabled = true;
+            countdownDisplay.textContent = `เหลือเวลา: ${timeInput} วินาที`;
+
+            let remainingTime = timeInput;  // ตั้งค่าตัวแปรสำหรับเวลาถอยหลัง
+
+            // เริ่มนับเวลาถอยหลังและอัปเดตตัวแสดงทุกวินาที
+            countdownInterval = setInterval(() => {
+                remainingTime -= 1;
+                countdownDisplay.textContent = `เหลือเวลา: ${remainingTime} วินาที`;
+
+                // เมื่อเวลาหมด
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);  // หยุดการนับถอยหลัง
+                    countdownDisplay.textContent = '';  // ล้างข้อความแสดงเวลา
+                    taskButton.classList.remove('working');  // เปลี่ยนสีปุ่มกลับเป็นสีเดิม
+                    taskButton.disabled = false;  // เปิดใช้งานปุ่ม
+                }
+            }, 1000);  // อัปเดตทุก 1 วินาที
+        }
+    </script>
+</body>
+</html>
