@@ -14,8 +14,14 @@
             <div class="navvv">
                 <div class="logo">A Board (Chatgpc)</div>
                 <ul class="menu">
-                    <li><a href="Tes111t">About</a></li>
-                    <li><a href="Tes111t">Contact</a></li>
+                    <li><a href="Tes111t" target="_blank">About</a></li>
+                    <li><a href="javascript:void(0);" onclick="scrollToBottom()">Contact</a></li>
+                    <script>
+                        function scrollToBottom() {
+                            const footer = document.getElementById("footer");
+                            footer.scrollIntoView({ behavior: "smooth" });
+                        }
+                    </script>
                 </ul>
 
                 <form action="#">
