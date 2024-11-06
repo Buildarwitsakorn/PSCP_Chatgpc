@@ -12,11 +12,14 @@
     <nav>
         <div class="navv">
             <div class="navvv">
-                <div class="logo" onclick="scrollToTop()">A Board (Chatgpc)</div>
+                <div class="logo" onclick="reloadPage()">A Board (Chatgpc)</div>
                 <ul class="menu">
                     <li><a href="javascript:void(0);" onclick="scrollToBottom()">About</a></li>
                     <li><a href="javascript:void(0);" onclick="scrollToBottom()">Contact</a></li>
                     <script>
+                        function reloadPage() {
+                            location.reload();  // This will reload the current page
+                        }
                         function scrollToBottom() {
                             const footer = document.getElementById("footer");
                             footer.scrollIntoView({ behavior: "smooth" });
