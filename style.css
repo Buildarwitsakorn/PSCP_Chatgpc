@@ -1,21 +1,31 @@
+/* พื้นฐาน */
 body {
     font-family: "Acme", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffcdae49;
 }
+
+/* Navbar */
 nav {
     font-size: 30px;
     color: #ffdbc1;
-    background-color: rgb(25, 129, 241) ;
-    border-bottom: 13px solid #80b3ff; 
+    background: linear-gradient(90deg, rgb(25, 129, 241), rgb(0, 95, 186)); /* เพิ่ม Gradient ให้ Navbar */
+    border-bottom: 5px solid #80b3ff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: sticky; /* Navbar ติดอยู่ด้านบนเมื่อเลื่อนลง */
+    top: 0;
+    z-index: 1000;
 }
 
+/* Container สำหรับ navbar */
 .navv {
     max-width: 1300px;
     margin: 0 auto;
 }
 
+/* การจัดวางภายใน navbar */
 .navvv {
     display: flex;
     justify-content: space-between;
@@ -23,17 +33,22 @@ nav {
     height: 70px;
 }
 
+/* โลโก้ */
 .logo {
     background-color: #170089;
-    padding-left: 11px;
-    padding-right: 11px;
+    padding: 0 16px;
     border-radius: 16px;
     font-size: 38px;
     font-weight: 600;
-    display: flex;
-    margin-right: 30px;
+    color: #ffdbc1;
+    transition: transform 0.3s ease; /* เพิ่มการย่อขยายเมื่อ hover */
 }
 
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* เมนู */
 .menu {
     list-style: none;
     display: flex;
@@ -44,21 +59,22 @@ nav {
 
 .menu li a {
     background-color: #0045d8cb;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 8px 15px;
     border-radius: 16px;
     text-decoration: none;
-    color:#ffeedf;
+    color: #ffeedf;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.menu li a :hover{
-    color:#656565;
+.menu li a:hover {
+    background-color: #80b3ff;
+    color: #333;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.menu {
-    flex-grow: 1; /* ให้ .menu ขยายเพื่อจัดให้อยู่ซ้ายสุด */
-}
-
+/* Form ค้นหา */
 form {
     color: #09478e;
     display: flex;
@@ -69,7 +85,7 @@ form input[type="text"] {
     padding: 0.5rem;
     border: none;
     outline: none;
-    border-radius: 4px 0 0 4px; /* ทำมุมมนซ้าย */
+    border-radius: 4px 0 0 4px;
 }
 
 form button {
@@ -78,16 +94,16 @@ form button {
     background-color: #ff6600;
     color: white;
     border: none;
-    border-radius: 0 4px 4px 0; /* ทำมุมมนทางขวา */
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 form button:hover {
     background-color: #ff8d41;
-    ;
 }
 
 .container {
@@ -256,4 +272,15 @@ button{
 button:hover {
     background-color: #a9a9a9;
     transform: scale(1.1);
+}
+
+.image-box {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.image-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
