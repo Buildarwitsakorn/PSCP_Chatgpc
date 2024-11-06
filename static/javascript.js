@@ -1,109 +1,196 @@
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+// Global Variables
+let countdownIntervals = {};
+let activeGames = new Set();
 
-const buttons = document.querySelectorAll('.play-button');
+// Utility Functions
+const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+};
 
-buttons.forEach(button => {
-    let isActive = false;
+const saveGameState = (gameId, timeRemaining, isActive) => {
+    localStorage.setItem(`timeRemaining-${gameId}`, timeRemaining);
+    localStorage.setItem(`gameState-${gameId}`, isActive ? 'active' : 'inactive');
+};
 
-    button.addEventListener('click', () => {
-        isActive = !isActive;
-        const imageBox = button.closest('.image-box');
-        const image = imageBox.querySelector('img');
-        const checkmark = imageBox.querySelector('.checkmark');
+const loadGameState = (gameId) => {
+    const timeRemaining = localStorage.getItem(`timeRemaining-${gameId}`);
+    const gameState = localStorage.getItem(`gameState-${gameId}`);
+    return {
+        timeRemaining: timeRemaining ? parseInt(timeRemaining) : null,
+        isActive: gameState === 'active'
+    };
+};
 
-        if (isActive) {
-            button.classList.add('active');
-            image.style.opacity = '0.25';  // จางรูปภาพ
-            checkmark.style.display = 'block';  // แสดงรูปเครื่องหมายถูก
-        } else {
-            button.classList.remove('active');
-            image.style.opacity = '1';  // คืนความชัดของรูปภาพ
-            checkmark.style.display = 'none';  // ซ่อนรูปเครื่องหมายถูก
-        }
-    });
-});
-function startTask(gameId) {
-    console.log(`Starting task for gameId: ${gameId}`); // ตรวจสอบค่า gameId
-    // ... โค้ดที่เหลือ
-}
-
-
-let countdownIntervals = {}; // เก็บ reference ของ countdown
-
-function startTask(gameId) {
-    const timeInput = document.getElementById(`timeInput-${gameId}`).value;
-    const countdownDisplay = document.getElementById(`countdownDisplay-${gameId}`);
-    const playButton = document.querySelector(`.image-box[data-game-id="${gameId}"] .play-button`);
+// UI Update Functions
+const updateGameUI = (gameId, isActive) => {
     const imageBox = document.querySelector(`.image-box[data-game-id="${gameId}"]`);
     const image = imageBox.querySelector('img');
     const checkmark = imageBox.querySelector('.checkmark');
+    const button = imageBox.querySelector('.play-button');
 
-    let timeInSeconds = timeInput * 60;
-
-    // ถ้ามีการเก็บเวลาที่เหลือใน localStorage ให้ใช้ค่านั้น
-    const storedTime = localStorage.getItem(`timeRemaining-${gameId}`);
-    if (storedTime) {
-        timeInSeconds = parseInt(storedTime);
-    }
-
-    // เริ่มนับถอยหลัง
-    clearInterval(countdownIntervals[gameId]); // เคลียร์ interval ที่มีอยู่แล้ว
-    countdownIntervals[gameId] = setInterval(() => {
-        if (timeInSeconds <= 0) {
-            clearInterval(countdownIntervals[gameId]);
-            countdownDisplay.textContent = "หมดเวลา!";
-            localStorage.removeItem(`timeRemaining-${gameId}`);
-            playButton.disabled = false; // เปิดใช้งานปุ่มอีกครั้งเมื่อหมดเวลา
-            
-            // คืนค่ารูปภาพและปุ่ม
-            image.style.opacity = '1';  // คืนความชัดของรูปภาพ
-            playButton.classList.remove('active'); // ลบสถานะ active
-            playButton.disabled = false; // คืนสถานะให้ปุ่ม
-        } else {
-            const minutes = Math.floor(timeInSeconds / 60);
-            const seconds = timeInSeconds % 60;
-            countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            timeInSeconds--;
-            localStorage.setItem(`timeRemaining-${gameId}`, timeInSeconds); // เก็บเวลาเหลือใน localStorage
-        }
-    }, 1000);
-    
-    // ปิดการใช้งานปุ่มเมื่อเริ่มนับถอยหลัง
-    playButton.disabled = true;
-    image.style.opacity = '0.25';  // จางรูปภาพ
-    checkmark.style.display = 'block';  // แสดงรูปเครื่องหมายถูก
-}
-
-function resumeTask(gameId, remainingTime) {
-    const countdownDisplay = document.getElementById(`countdownDisplay-${gameId}`);
-    countdownDisplay.textContent = `${Math.floor(remainingTime / 60)}:${remainingTime % 60 < 10 ? '0' : ''}${remainingTime % 60}`;
-    startTask(gameId); // เริ่มนับถอยหลังจากเวลาที่เหลือ
-}
-
-window.onload = function() {
-    // ตรวจสอบเวลาที่เหลือสำหรับแต่ละเกมเมื่อโหลดหน้า
-    const numberOfGames = 37; // จำนวนบอร์ดเกม (ปรับตามที่ต้องการ)
-    for (let i = 1; i <= numberOfGames; i++) {
-        const timeRemaining = localStorage.getItem(`timeRemaining-${i}`);
-        if (timeRemaining) {
-            resumeTask(i, parseInt(timeRemaining)); // เรียกใช้ resumeTask ถ้ามีเวลาเหลือ
-        }
+    if (isActive) {
+        image.style.opacity = '0.25';
+        checkmark.style.display = 'block';
+        button.classList.add('active');
+        button.disabled = true;
+    } else {
+        image.style.opacity = '1';
+        checkmark.style.display = 'none';
+        button.classList.remove('active');
+        button.disabled = false;
     }
 };
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+// Game Control Functions
+const startGame = (gameId) => {
+    const timeInput = 60; // Default to 60 minutes if no input
+    const totalSeconds = timeInput * 60;
+    
+    if (activeGames.has(gameId)) {
+        console.log(`Game ${gameId} is already active`);
+        return;
+    }
+
+    activeGames.add(gameId);
+    updateGameUI(gameId, true);
+    startCountdown(gameId, totalSeconds);
+};
+
+const startCountdown = (gameId, totalSeconds) => {
+    const countdownDisplay = document.getElementById(`countdownDisplay-${gameId}`);
+    let timeRemaining = totalSeconds;
+
+    const updateCountdown = () => {
+        countdownDisplay.textContent = formatTime(timeRemaining);
+        saveGameState(gameId, timeRemaining, true);
+
+        if (timeRemaining <= 0) {
+            clearInterval(countdownIntervals[gameId]);
+            endGame(gameId);
+        } else {
+            timeRemaining--;
+        }
+    };
+
+    clearInterval(countdownIntervals[gameId]);
+    countdownIntervals[gameId] = setInterval(updateCountdown, 1000);
+    updateCountdown();
+};
+
+const endGame = (gameId) => {
+    clearInterval(countdownIntervals[gameId]);
+    activeGames.delete(gameId);
+    
+    const countdownDisplay = document.getElementById(`countdownDisplay-${gameId}`);
+    countdownDisplay.textContent = "พร้อมให้ยืม";
+    
+    updateGameUI(gameId, false);
+    saveGameState(gameId, 0, false);
+    
+    // Show completion notification
+    showNotification(`เกม ${gameId} พร้อมให้ยืมแล้ว!`);
+};
+
+// Notification System
+const showNotification = (message) => {
+    const notification = document.createElement('div');
+    notification.className = 'game-notification';
+    notification.textContent = message;
+    
+    // Add styles for notification
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #00b09b, #96c93d);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideIn 0.5s ease-out;
+    `;
+
+    document.body.appendChild(notification);
+
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.5s ease-in';
+        setTimeout(() => notification.remove(), 500);
+    }, 3000);
+};
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listeners to all play buttons
+    document.querySelectorAll('.play-button').forEach(button => {
+        const gameId = button.closest('.image-box').dataset.gameId;
+        
+        button.addEventListener('click', () => {
+            startGame(gameId);
+        });
+
+        // Restore game state if active
+        const state = loadGameState(gameId);
+        if (state.isActive && state.timeRemaining > 0) {
+            startCountdown(gameId, state.timeRemaining);
+            updateGameUI(gameId, true);
+        }
     });
-  });
-  
-  document.querySelectorAll('.image-box').forEach(box => {
-    observer.observe(box);
-  });
+
+    // Add back to top functionality
+    const backToTopButton = document.querySelector('.back-to-top');
+    if (backToTopButton) {
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Add scroll animations
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.image-box').forEach(box => {
+        observer.observe(box);
+    });
+});
+
+// Add CSS for animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
