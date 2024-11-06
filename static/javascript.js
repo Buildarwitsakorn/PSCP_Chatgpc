@@ -202,3 +202,21 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+function searchBoardGame(event) {
+    event.preventDefault();  // ป้องกันไม่ให้ฟอร์มรีเฟรชหน้า
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const gameBoxes = document.querySelectorAll('.image-box');
+
+    gameBoxes.forEach(gameBox => {
+        const gameName = gameBox.querySelector('p').textContent.toLowerCase();
+        if (gameName.includes(query)) {
+            gameBox.style.display = 'block';  // แสดงบอร์ดเกม
+        } else {
+            gameBox.style.display = 'none';  // ซ่อนบอร์ดเกมที่ไม่ตรงกับคำค้นหา
+        }
+    });
+}
+
+
+

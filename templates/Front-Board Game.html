@@ -23,10 +23,11 @@
                         }
                     </script>
                 </ul>
-                <form action="#">
-                    <input type="text" placeholder="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                <form id="searchForm" onsubmit="searchBoardGame(event)">
+                    <input type="text" id="searchInput" placeholder="Search for board games">
+                    <button type="submit">Search</button>
                 </form>
+                <div id="results"></div>
             </div>
         </div>
     </nav>
