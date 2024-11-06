@@ -95,3 +95,15 @@ window.onload = function() {
         }
     }
 };
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+  
+  document.querySelectorAll('.image-box').forEach(box => {
+    observer.observe(box);
+  });
