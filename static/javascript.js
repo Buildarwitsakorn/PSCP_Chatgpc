@@ -45,9 +45,9 @@ const updateGameUI = (gameId, isActive) => {
 
 // Game Control Functions
 const startGame = (gameId) => {
-    const timeInput = 60; // Default to 60 minutes if no input
-    const totalSeconds = timeInput * 60;
-    
+    const timeInputMinutes = 1; // ตัวอย่างการตั้งค่าครั้งแรกเป็น 1 นาที
+    const totalSeconds = timeInputMinutes * 60;
+
     if (activeGames.has(gameId)) {
         console.log(`Game ${gameId} is already active`);
         return;
@@ -70,12 +70,12 @@ const startCountdown = (gameId, totalSeconds) => {
             clearInterval(countdownIntervals[gameId]);
             endGame(gameId);
         } else {
-            timeRemaining--;
+            timeRemaining--; // ลดลงทีละ 1 วินาที
         }
     };
 
     clearInterval(countdownIntervals[gameId]);
-    countdownIntervals[gameId] = setInterval(updateCountdown, 1000);
+    countdownIntervals[gameId] = setInterval(updateCountdown, 1000); // อัพเดตทุก 1 วินาที
     updateCountdown();
 };
 

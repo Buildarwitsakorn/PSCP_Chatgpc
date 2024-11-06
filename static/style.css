@@ -91,9 +91,10 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 450px;
+    height: 550px;
     opacity: 0;
     transform: translateY(20px);
+    text-align: center;
 }
 
 .image-box.visible {
@@ -169,17 +170,20 @@ nav {
 
 /* Buttons and Links */
 .play-link {
-    display: inline-block;
+    display: block; /* ทำให้เป็นบล็อกเพื่อใช้ margin ได้ */
+    margin: 1rem auto; /* จัดให้อยู่ตรงกลาง */
     padding: 0.8rem 1.5rem;
     background: linear-gradient(45deg, #4b6cb7, #182848);
     color: white;
-    text-decoration: none;
     border-radius: 8px;
+    width: 80%;
     font-weight: 500;
     transition: all 0.3s ease;
     text-align: center;
-    margin: 1rem;
+    font-size: 20px; /* เพิ่มขนาดฟอนต์ */
+    text-decoration: none; /* ลบเส้นใต้ */
 }
+
 
 .play-link:hover {
     background: linear-gradient(45deg, #182848, #4b6cb7);
@@ -187,6 +191,8 @@ nav {
 }
 
 .play-button {
+    display: block;
+    text-align: center;
     width: 80%;
     margin: 0.5rem auto;
     padding: 0.8rem 1.5rem;
@@ -196,8 +202,30 @@ nav {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
+    font-size: 20px;
     transition: all 0.3s ease;
+    text-decoration: none; /* ลบเส้นใต้จากลิงก์ */
 }
+
+.play-button:link, .play-button:visited {
+    text-decoration: none; /* ลบเส้นใต้จากลิงก์เมื่อยังไม่คลิกหรือคลิกแล้ว */
+}
+
+.play-button:hover, .play-button:focus {
+    text-decoration: none; /* ลบเส้นใต้จากลิงก์เมื่อเอาเมาส์ชี้หรือเมื่อโฟกัส */
+}
+
+
+
+.test {
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
+    height: 6%;
+    border-radius: 10px; /* ปรับขนาดของมุมมน */
+}
+
+
 
 .play-button:hover {
     background: linear-gradient(45deg, #96c93d, #00b09b);
