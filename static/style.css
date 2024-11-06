@@ -61,7 +61,7 @@ nav {
 .menu li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -70,6 +70,37 @@ nav {
 .menu li a:hover {
     background: rgba(255,255,255,0.1);
     transform: translateY(-2px);
+}
+
+form {
+    color: #09478e;
+    display: flex;
+    align-items: center;
+}
+
+form input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 4px 0 0 4px; /* ทำมุมมนซ้าย */
+}
+
+form button {
+    padding: 0.513rem;
+    font-size: 15px;
+    background-color: #8fd21d;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0; /* ทำมุมมนทางขวา */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form button:hover {
+    background-color: #ff8d41;
+    ;
 }
 
 /* Container and Game Cards */
@@ -126,6 +157,10 @@ nav {
     color: #2d3436;
     background: white;
     margin: 0;
+}
+
+.image-box a {
+    text-decoration: none;
 }
 
 /* Time Input Styling */
@@ -246,9 +281,10 @@ nav {
 .footer {
     background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
     color: white;
-    padding: 3rem 0;
-    margin-top: 4rem;
+    padding: 4rem 0;
+    margin-top: 2rem;
     text-align: center;
+    font-size: 1.2rem;
 }
 
 .footer .social-links {
@@ -271,12 +307,14 @@ nav {
 
 .back-to-top {
     position: fixed;
+    font-size: 1rem;
     bottom: 2rem;
     right: 2rem;
     background: linear-gradient(45deg, #00b4db, #0083b0);
     color: white;
     padding: 1rem;
-    border-radius: 50%;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
