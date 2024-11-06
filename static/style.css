@@ -138,7 +138,7 @@ nav {
 .time-input {
     width: 100%;
     padding: 0.8rem;
-    border: 2px solid #e2e8f0;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
     font-size: 1rem;
     text-align: center;
@@ -223,6 +223,7 @@ nav {
     width: 60%;
     height: 6%;
     border-radius: 10px; /* ปรับขนาดของมุมมน */
+    border: 1px solid;
 }
 
 
