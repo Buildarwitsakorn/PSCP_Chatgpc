@@ -23,6 +23,7 @@ def index():
     return render_template('Front-Board Game.html', message=message)
 
 @app.route('/search', methods=["GET"])
+#เอาไว้สำหรับพัฒนาต่อเมื่อต้องการทำ fetch
 def search():
     # รับคำค้นหาจาก query string
     query = request.args.get('q', '')

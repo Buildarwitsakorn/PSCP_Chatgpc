@@ -203,6 +203,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+//function การใช้ DOM หรือการค้นหาข้อมูลโดยการกรองข้อมูลจากแท็ค <p> ที่แสดงผลอยู่บริวเณหน้าเว็บ
 function searchBoardGame(event) {
     event.preventDefault();  // ป้องกันไม่ให้ฟอร์มรีเฟรชหน้า
     const query = document.getElementById('searchInput').value.toLowerCase();
