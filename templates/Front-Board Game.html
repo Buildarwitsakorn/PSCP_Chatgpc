@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Grid with Board Game Titles</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 </head>
@@ -396,12 +396,11 @@
             <div id="countdownDisplay-33">x</div>
         </div>
     </div>
-    <script src="javascript.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 <footer class="footer">
     <footer id="footer" class="footer">
-        เว็บไซต์นี้จัดทำขึ้นเพื่ออำนวยความสะดวกให้นักศึกษาแผนก IT ที่สนใจในการเล่นบอร์ดเกม โดยเป็นพื้นที่ที่ช่วยให้การผ่อนคลายและสร้างปฏิสัมพันธ์ระหว่างเพื่อน ๆ ผ่านการเล่นเกมที่สนุกและท้าทาย บอร์ดเกมเป็นกิจกรรมที่ไม่เพียงช่วยคลายเครียด แต่ยังพัฒนาทักษะสำคัญที่เป็นประโยชน์ต่อการเรียนด้าน IT เช่น การวางแผนเชิงกลยุทธ์ การแก้ปัญหาอย่างเป็นระบบ และการทำงานร่วมกันในทีม
-เว็บไซต์นี้รวบรวมรีวิวและข้อมูลบอร์ดเกมที่เหมาะสำหรับนักศึกษา IT ทุกระดับ ตั้งแต่เกมพื้นฐานไปจนถึงเกมที่ซับซ้อน ทำให้คุณสามารถเลือกเกมที่เหมาะกับความสนใจและเวลาของคุณ อีกทั้งยังเป็นแหล่งพบปะและแลกเปลี่ยนความรู้กับเพื่อน ๆ ในแผนก IT ที่มีความชอบในบอร์ดเกมเช่นเดียวกัน
+        {{ message }}
     </footer>
     <p>&copy; 2024 MyWebsite. All rights reserved.</p>
     <div class="social-links">
