@@ -45,8 +45,15 @@ const updateGameUI = (gameId, isActive) => {
 
 // Game Control Functions
 const startGame = (gameId) => {
-    const timeInputMinutes = 1; // ตัวอย่างการตั้งค่าครั้งแรกเป็น 1 นาที
-    const totalSeconds = timeInputMinutes * 60;
+    // ดึงค่า input โดยใช้ data-game-id ที่ตรงกับ gameId
+    const timeInputElement = document.querySelector(`#timeInput-${gameId}`);
+    let timeInputMinutes = parseInt(timeInputElement.value);
+
+    if (isNaN(timeInputMinutes) || timeInputMinutes <= 0) { // ถ้าเป็น NaN หรือ <= 0 ให้ใช้ 1 นาที
+        timeInputMinutes = 1;
+    }
+
+    const totalSeconds = timeInputMinutes * 60; // เปลี่ยนเวลาเป็นวินาที
 
     if (activeGames.has(gameId)) {
         console.log(`Game ${gameId} is already active`);
@@ -57,6 +64,7 @@ const startGame = (gameId) => {
     updateGameUI(gameId, true);
     startCountdown(gameId, totalSeconds);
 };
+
 
 const startCountdown = (gameId, totalSeconds) => {
     const countdownDisplay = document.getElementById(`countdownDisplay-${gameId}`);
@@ -194,3 +202,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+    
