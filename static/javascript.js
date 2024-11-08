@@ -217,6 +217,3 @@ function searchBoardGame(event) {
         }
     });
 }
-
-
-

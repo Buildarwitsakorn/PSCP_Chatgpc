@@ -1,16 +1,7 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# รายการบอร์ดเกม
-# board_games = [
-#     "7 ATE 9", "AQUARIUS", "AVALON", "AZUL", "BANG",
-#     "BANG GOLD RUSH", "CAPTAIN SONAR", "CENTURY SPICE ROAD", "CITADELS", "COUP",
-#     "CS FILES","DEAD OF WINTER","DOMINION","DRAGON CASTLE","EXPLODING KITTENS",
-#     "GIZMOS","KAKER LAKEN POKER","ONE NIGHT","PANDEMIC","POWER GRID",
-#     "SALEM","TERRAFORMING MARS","SERIAL KILLER","THE MIND","TIME LINE","Political Mess",
-#     "UNO","CATAN","Ultimate Werewolf Deluxe","สนุก สลัด","หมากรุก","หมากล้อม","JUNGLE SPEED"
-# ]
 
 @app.route('/')
 def index():
@@ -21,6 +12,20 @@ def index():
     3.กรอกแบบฟอร์มสำหรับบยืมบอร์ดเกม
     4.ผู้ใช้สามารถกดคำว่า วิธีเล่น เพื่อดูวิธีการเล่นบอร์ดเกมที่ต้องการได้"""
     return render_template('Front-Board Game.html', message=message)
+
+if __name__ == '__main__':
+    # รันเซิร์ฟเวอร์ Flask บนพอร์ต 5500
+    app.run(debug=True, port=5500)
+
+# รายการบอร์ดเกม
+# board_games = [
+#     "7 ATE 9", "AQUARIUS", "AVALON", "AZUL", "BANG",
+#     "BANG GOLD RUSH", "CAPTAIN SONAR", "CENTURY SPICE ROAD", "CITADELS", "COUP",
+#     "CS FILES","DEAD OF WINTER","DOMINION","DRAGON CASTLE","EXPLODING KITTENS",
+#     "GIZMOS","KAKER LAKEN POKER","ONE NIGHT","PANDEMIC","POWER GRID",
+#     "SALEM","TERRAFORMING MARS","SERIAL KILLER","THE MIND","TIME LINE","Political Mess",
+#     "UNO","CATAN","Ultimate Werewolf Deluxe","สนุก สลัด","หมากรุก","หมากล้อม","JUNGLE SPEED"
+# ]
 
 # @app.route('/search', methods=["GET"])
 # #เอาไว้สำหรับพัฒนาต่อเมื่อต้องการทำ fetch
@@ -33,7 +38,3 @@ def index():
 
 #     # ส่งผลลัพธ์เป็น JSON กลับไปยัง JavaScript ที่ฝั่ง frontend
 #     return jsonify({'results': results})
-
-if __name__ == '__main__':
-    # รันเซิร์ฟเวอร์ Flask บนพอร์ต 5500
-    app.run(debug=True, port=5500)
